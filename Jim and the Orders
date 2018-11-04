@@ -1,0 +1,27 @@
+// Program in C++ -
+
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,first,second;
+    cin>>n; //Input no of customers
+    vector<pair<int,int>>v;
+    priority_queue<pair<int,int>>pq;
+    for(int i=1; i<=n; i++)
+    {
+        cin>>first;
+        cin>>second;
+        int x =first +second;
+        pq.push(make_pair(x,i));
+    }
+    while(!pq.empty())
+    {
+        v.push_back(pq.top());
+        pq.pop();
+    }
+    sort(v.begin(),v.end());
+    for(auto x=v.begin(); x<v.end(); x++)
+        cout<<x->second<<" ";
+    return 0;
+}
